@@ -8,8 +8,11 @@ _collapsed_wd() {
   ")
 }
 
-PROMPT='%{$fg[magenta]%}$(_collapsed_wd) %{$reset_color%}'
-RPROMPT='%{$fg[magenta]%}$(git_prompt_info)%{$reset_color%} $(git_prompt_status)%{$reset_color%}'
+PROMPT='%{$fg[magenta]%} $(_collapsed_wd) %{$FG[161]%} > %{$reset_color%}'
+RPROMPT='%{$fg[161]%}$(git_prompt_info)%{$reset_color%} $(git_prompt_status)%{$reset_color%}'
+
+local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
